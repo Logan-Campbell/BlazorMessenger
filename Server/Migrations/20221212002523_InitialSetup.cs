@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace LANMessenger.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class InitalSetup : Migration
+    public partial class InitialSetup : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +35,7 @@ namespace LANMessenger.Server.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SenderId = table.Column<int>(type: "int", nullable: false),
                     RecieverId = table.Column<int>(type: "int", nullable: false),
+                    message = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Date = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     senderip = table.Column<string>(name: "sender_ip", type: "nvarchar(max)", nullable: true),
                     senderdevice = table.Column<string>(name: "sender_device", type: "nvarchar(max)", nullable: true)
@@ -44,14 +47,22 @@ namespace LANMessenger.Server.Migrations
                         name: "FK_Message_User_RecieverId",
                         column: x => x.RecieverId,
                         principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Message_User_SenderId",
                         column: x => x.SenderId,
                         principalTable: "User",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "Id", "password", "username" },
+                values: new object[,]
+                {
+                    { 1, "password", "Group" },
+                    { 100, "letmein", "John Doe" },
+                    { 101, "letmein", "Jane Smith" }
                 });
 
             migrationBuilder.CreateIndex(

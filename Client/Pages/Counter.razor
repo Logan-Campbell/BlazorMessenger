@@ -1,5 +1,5 @@
 ﻿@page "/counter"
-
+@using LANMessenger.Shared
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -10,9 +10,13 @@
 
 @code {
     private int currentCount = 0;
-
     private void IncrementCount()
     {
         currentCount++;
+    }
+
+    protected override void OnInitialized()
+    {
+        
     }
 }

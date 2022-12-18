@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LANMessenger.Server.Migrations
 {
     [DbContext(typeof(LANMessengerServerContext))]
-    [Migration("20221211010752_InitalSetup")]
-    partial class InitalSetup
+    [Migration("20221212002523_InitialSetup")]
+    partial class InitialSetup
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,10 @@ namespace LANMessenger.Server.Migrations
 
                     b.Property<int>("SenderId")
                         .HasColumnType("int");
+
+                    b.Property<string>("message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("sender_device")
                         .HasColumnType("nvarchar(max)");
@@ -76,25 +80,52 @@ namespace LANMessenger.Server.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            password = "password",
+                            username = "Group"
+                        },
+                        new
+                        {
+                            Id = 100,
+                            password = "letmein",
+                            username = "John Doe"
+                        },
+                        new
+                        {
+                            Id = 101,
+                            password = "letmein",
+                            username = "Jane Smith"
+                        });
                 });
 
             modelBuilder.Entity("LANMessanger.Server.Models.Message", b =>
                 {
                     b.HasOne("LANMessanger.Server.Models.User", "Reciever")
-                        .WithMany()
+                        .WithMany("RecievedMessages")
                         .HasForeignKey("RecieverId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("LANMessanger.Server.Models.User", "Sender")
-                        .WithMany()
+                        .WithMany("SentMessages")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Reciever");
 
                     b.Navigation("Sender");
+                });
+
+            modelBuilder.Entity("LANMessanger.Server.Models.User", b =>
+                {
+                    b.Navigation("RecievedMessages");
+
+                    b.Navigation("SentMessages");
                 });
 #pragma warning restore 612, 618
         }

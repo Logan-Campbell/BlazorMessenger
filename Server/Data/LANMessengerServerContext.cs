@@ -13,21 +13,22 @@ namespace LANMessenger.Server.Data
         public LANMessengerServerContext (DbContextOptions<LANMessengerServerContext> options)
             : base(options)
         {
+            
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Sender)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Cascade);
+                .WithMany(u => u.SentMessages)
+                .HasForeignKey(m => m.SenderId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             modelBuilder.Entity<Message>()
                 .HasOne(m => m.Reciever)
-                .WithMany()
-                .OnDelete(DeleteBehavior.Cascade);
-
-
+                .WithMany(u => u.RecievedMessages)
+                .HasForeignKey(m => m.RecieverId)
+                .OnDelete(DeleteBehavior.NoAction);
             modelBuilder.Seed();
         }
 
