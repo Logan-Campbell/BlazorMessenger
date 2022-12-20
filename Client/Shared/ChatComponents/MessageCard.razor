@@ -1,0 +1,20 @@
+﻿@using LANMessenger.Shared.Models
+
+<div class="card" style="max-width: 40rem;">
+    <div class="card-body">
+        <h5 class="card-title">@data.SenderUsername</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@data.Date</h6>
+        <p class="card-text">@data.message</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public UserMessageDTO data { get; set; }
+    /// <summary>
+    /// If true, then aligns card to the left, otherwise aligns card to the right
+    /// </summary>
+    [Parameter]
+    public bool isOther { get; set; } = true;
+
+}

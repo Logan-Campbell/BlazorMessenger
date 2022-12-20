@@ -18,6 +18,13 @@ namespace LANMessenger.Server.Data
                     username = "Group",
                     password = "password"
                 },
+                //ANONYMOUS User, stand in user when not logged in can only access group chat
+                new User
+                {
+                    Id = 2,
+                    username = "Anon",
+                    password = "password"
+                },
                 //Example User
                 new User
                 {
@@ -38,7 +45,7 @@ namespace LANMessenger.Server.Data
             
             #region Messages
             //Add a real date and time to keep everything in order and model realistic behaviour.
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = new DateTime(2022, 12, 18, 7, 35, 20);
             List<Message> messages = new List<Message>
             {
                 //Messages to the Group
@@ -61,19 +68,30 @@ namespace LANMessenger.Server.Data
                     Date = new DateTimeOffset(dateTime.AddMinutes(2)),
                     sender_ip = "127.0.0.1",
                     sender_device = "Mac"
+                },
+                new Message
+                {
+                    Id = 3,
+                    SenderId = 2,
+                    RecieverId = 1,
+                    message = "Third :)",
+                    Date = new DateTimeOffset(dateTime.AddMinutes(4)),
+                    sender_ip = "10.0.0.45",
+                    sender_device = "Android"
                 }
             };
+            Random rand = new Random(0);
             //Random Messages between users 100 and 101
             for (int i = 0; i < 100; i++)
             {
-                Random rand = new Random();
+                
                 //Pick either user 100 or 101
                 int user = 100 + rand.Next(2);
                 //Add some time each loop
                 dateTime = dateTime.AddMinutes(rand.Next(1, 10));
                 messages.Add(new Message
                 {
-                    Id = i + 3,
+                    Id = i + 4,
                     SenderId = user == 100 ? 100 : 101,
                     RecieverId = user == 100 ? 101 : 100,
                     message = rand.NextInt64().ToString(),

@@ -12,8 +12,8 @@ namespace LANMessanger.Server.Models
         public string password { get; set; }
 
         
-        public virtual IEnumerable<Message> SentMessages { get; set; }
+        public virtual IEnumerable<Message>? SentMessages { get; set; }
         
-        public virtual IEnumerable<Message> RecievedMessages { get; set; }
+        public virtual IEnumerable<Message>? RecievedMessages { get; set; }
     }
 }

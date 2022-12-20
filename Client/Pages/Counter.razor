@@ -1,5 +1,6 @@
 ﻿@page "/counter"
-@using LANMessenger.Shared
+@using LANMessenger.Shared.Models
+@inject HttpClient Http
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -8,15 +9,30 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+@if(users is not null)
+{
+    <ul>
+    @foreach(var user in users)
+    {
+        <li>@user.username</li>
+    }
+    </ul>
+} else
+{
+    <p>Loading user list...</p>
+}
+
+
 @code {
+    private IEnumerable<UserDTO> users;
     private int currentCount = 0;
     private void IncrementCount()
     {
         currentCount++;
     }
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
-        
+        users = await Http.GetFromJsonAsync<IEnumerable<UserDTO>>("api/Users");
     }
 }

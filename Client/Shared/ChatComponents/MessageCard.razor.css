@@ -1,0 +1,9 @@
+﻿card-title {
+    display: inline;
+    float: left;
+}
+
+card-subtitle {
+    display: inline;
+    float: right;
+}
