@@ -13,7 +13,7 @@ namespace LANMessenger.Server.Hubs
                 SenderUsername = user.username,
                 message = message.message,
                 Date = message.Date,
-                sender_ip= message.sender_ip,
+                sender_ip= Context.GetHttpContext().Connection.RemoteIpAddress.ToString(),
                 sender_device= message.sender_device
             };
             await Clients.All.SendAsync("ReceiveMessage", userMessage);

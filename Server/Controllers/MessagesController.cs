@@ -96,7 +96,10 @@ namespace LANMessenger.Server.Controllers
             {
                 return Problem("Entity set 'LANMessengerServerContext.Message'  is null.");
             }
-            _context.Message.Add(_mapper.Map<Message>(message));
+            var ip = HttpContext.Connection.RemoteIpAddress.ToString();
+            Message m = _mapper.Map<Message>(message);
+            m.sender_ip = ip;
+            _context.Message.Add(m);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMessage", new { id = message.Id }, message);

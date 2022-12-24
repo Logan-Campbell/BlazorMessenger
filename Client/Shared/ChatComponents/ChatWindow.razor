@@ -1,22 +1,30 @@
 ﻿@using Microsoft.AspNetCore.SignalR.Client
 @using LANMessenger.Shared.Models
+@using System.Net
 @inject HttpClient Http
 @inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
 @implements IAsyncDisposable
+<div class="chat-window h-100 d-flex flex-column">
+    <div class="chat-messages flex-row" id="chat-messages">
+        @foreach (var message in messages)
+        {   
+            <MessageCard data=message></MessageCard>
+        }
+    </div>
 
-<div>
-    @foreach (var message in messages)
-    {
-        <MessageCard data=message></MessageCard>
-    }
+    <div class="chat-input d-flex flex-row flex-grow-1 align-content-center">
+        <div class="input-group mb-3">
+            <input @bind="messageInput" type="text" class="form-control" placeholder="Say something!"/>
+            <div class="input-group-append">
+                <button @onclick="Send" disabled="@(!IsConnected)" class="btn btn-primary" type="button">Enter</button>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="form-group">
-    <label>
-        Message:
-        <input @bind="messageInput" size="50" />
-    </label>
-</div>
-<button @onclick="Send" disabled="@(!IsConnected)">Send</button>
+
+
+
 
 @code {
     [Parameter]
@@ -26,9 +34,10 @@
     private HubConnection? hubConnection;
     private List<UserMessageDTO> messages = new List<UserMessageDTO>();
     private string? messageInput;
-
+    private string userAgent = string.Empty;
     protected override async Task OnInitializedAsync()
     {
+        //userAgent = ParseDevice(Navigation.user);
         IEnumerable<UserMessageDTO> userMessages = await Http.GetFromJsonAsync<IEnumerable<UserMessageDTO>>($"api/UserMessages?recieverId={recieverId}");
         messages.AddRange(userMessages);
         hubConnection = new HubConnectionBuilder()
@@ -47,8 +56,9 @@
 
     private async Task Send()
     {
-        if (hubConnection is not null)
+        if (hubConnection is not null && messageInput is not null && messageInput != string.Empty)
         {
+            //Build a message to send to data base
             MessageDTO message = new MessageDTO
                 {
                     SenderId = user.Id,
@@ -56,7 +66,7 @@
                     message = messageInput,
                     Date = DateTimeOffset.Now,
                     sender_ip = "10.0.0.15",
-                    sender_device = "Windows"
+                    sender_device = userAgent
                 };
 
             HttpResponseMessage response = await Http.PostAsJsonAsync<MessageDTO>("api/Messages", message);
@@ -68,6 +78,9 @@
             {
                 //Display error message/model
             }
+            //Clear out input
+            messageInput = string.Empty;
+            //await JSRuntime.InvokeVoidAsync("LANMessenger.scrollBottom", "chat-messages");
         }
     }
 
@@ -81,4 +94,14 @@
             await hubConnection.DisposeAsync();
         }
     }
+
+    private string ParseDevice(string userAgent)
+    {
+        int startIndex = userAgent.IndexOf("(");
+        int endIndex = userAgent.IndexOf("(", startIndex);
+        if (startIndex == -1 || endIndex == -1)
+            return "N/A";
+        return userAgent.Substring(startIndex, endIndex - startIndex);
+    }
+
 }

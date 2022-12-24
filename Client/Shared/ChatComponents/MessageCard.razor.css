@@ -1,9 +1,3 @@
-﻿card-title {
-    display: inline;
-    float: left;
-}
-
-card-subtitle {
-    display: inline;
-    float: right;
+﻿.message-contianer {
+    max-width: 40rem;
 }

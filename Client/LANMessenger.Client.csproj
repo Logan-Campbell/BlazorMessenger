@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Shared\ChatComponents\ChatWindow.razor.css" />
     <None Remove="Shared\ChatComponents\MessageCard.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Shared\ChatComponents\ChatWindow.razor.css" />
     <Content Include="Shared\ChatComponents\MessageCard.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\scripts\HelperFunctions.js" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,10 @@
 ﻿@using LANMessenger.Shared.Models
 
-<div class="card" style="max-width: 40rem;">
+<div @attributes=@leftOrRightAlginCard(isSender) class="message-contianer px-4">
     <div class="card-body">
-        <h5 class="card-title">@data.SenderUsername</h5>
-        <h6 class="card-subtitle mb-2 text-muted">@data.Date</h6>
+        <h5 class="d-inline card-title">@data.SenderUsername</h5>
+        <h6 class="d-inline card-subtitle mb-2 text-muted">@data.Date.ToLocalTime().ToString(dateFormat)</h6>
+        <h7 class="d-inline card-subtitle mb-2 text-muted">Sent From: @data.sender_ip @data.sender_device</h7>
         <p class="card-text">@data.message</p>
     </div>
 </div>
@@ -15,6 +16,24 @@
     /// If true, then aligns card to the left, otherwise aligns card to the right
     /// </summary>
     [Parameter]
-    public bool isOther { get; set; } = true;
+    public bool isSender { get; set; } = false;
 
+    [Parameter]
+    public string dateFormat { get; set; } = "MMM dd, yyyy h:mm tt";
+
+    private Dictionary<string, object> leftOrRightAlginCard(bool isLeft)
+    {
+        string attr = "me-auto";
+        if (isLeft)
+        {
+            attr = "ms-auto";
+        }
+
+        Dictionary<string, object> Attributes = new Dictionary<string, object>
+        {
+            ["class"] = $"card {attr}"
+        };
+
+        return Attributes;
+    }
 }
