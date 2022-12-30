@@ -1,39 +1,101 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using LANMessenger.Shared.Models
+@implements IDisposable
+@inject IJSRuntime JS
+@inject HttpClient Http
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">LANMessenger</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
+        
     </div>
 </div>
 
 <div class="@NavMenuCssClass nav-scrollable" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
+    <nav class="d-flex flex-column h-100">
         <div class="nav-item px-3">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
-            </NavLink>
+        @if(users is not null)
+        {
+            @foreach(var user in users)
+            {
+                <div class="nav-item px-3"> 
+                    @if(user.username == "Group")
+                    {
+                        <NavLink class="nav-link" href="groupchat">
+                            <div><span class="oi oi-people" aria-hidden="true"></span>Group Chat</div>
+                        </NavLink>
+                    }
+                    else if(user.Id > 2) //Don't include Anonymous user
+                    {
+                        <NavLink class="nav-link" href=@UserChatPage(user.Id)>
+                            <div><span class="oi oi-person" aria-hidden="true"></span>@user.username</div>
+                        </NavLink>
+                    }
+                </div>
+            }
+        }
+        <div class="nav-item px-3 mt-auto">
+            <Login />
         </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </div>
-    </nav>
+    </nav>   
 </div>
-
 @code {
-    private bool collapseNavMenu = true;
+    [CascadingParameter(Name = "AnonUser")]
+    public UserDTO AnonUser { get; set; }
 
+    public UserDTO CurrentUser { get; set; }
+    public IEnumerable<UserDTO> users { get; set; }
+    private bool collapseNavMenu = true;
     private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private SessionStorage sessionStorage;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        users = await Http.GetFromJsonAsync<IEnumerable<UserDTO>>("api/Users");
+        sessionStorage = new(JS);
+        CurrentUser = await GetCurrentUser();
+        if(CurrentUser is null)
+        {
+            CurrentUser = AnonUser;
+        }
+    }
+
+    private async Task<UserDTO> GetCurrentUser()
+    {
+        string? currentUser = await sessionStorage.GetItem("currentUser");
+        if (currentUser is null || currentUser == string.Empty)
+            return null;
+        UserDTO? user;
+        try
+        {
+            user = JsonSerializer.Deserialize<UserDTO>(currentUser);
+        }
+        catch
+        {
+            return null;
+        }
+        return user;
+    }
+
+    private string UserChatPage(int id)
+    {
+        return $"userchat/{id}";
+    }
 
     private void ToggleNavMenu()
     {
         collapseNavMenu = !collapseNavMenu;
     }
+
+
+
+    public void Dispose() { sessionStorage?.Dispose(); }
 }

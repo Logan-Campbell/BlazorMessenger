@@ -1,20 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace LANMessanger.Server.Models
+namespace LANMessenger.Shared.Models
 {
-    public class Message
+    public class MessageDTO
     {
-        [Key]
         public int Id { get; set; }
         public int SenderId { get; set; }
-        public virtual User? Sender { get; set; }
+        public virtual UserDTO? Sender { get; set; }
         public int RecieverId { get; set; }
-        public virtual User? Reciever { get; set; }
+        public virtual UserDTO? Reciever { get; set; }
         public string message { get; set; }
         public DateTimeOffset Date { get; set; }
         public string? sender_ip { get; set; }
         public string? sender_device { get; set; }
-
     }
 }

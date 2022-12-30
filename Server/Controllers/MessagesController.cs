@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LANMessanger.Server.Models;
 using LANMessenger.Server.Data;
+using LANMessenger.Server.AutoMapper;
+using LANMessenger.Shared.Models;
+using AutoMapper;
 
 namespace LANMessenger.Server.Controllers
 {
@@ -15,10 +18,13 @@ namespace LANMessenger.Server.Controllers
     public class MessagesController : ControllerBase
     {
         private readonly LANMessengerServerContext _context;
+        private readonly IMapper _mapper;
 
         public MessagesController(LANMessengerServerContext context)
         {
             _context = context;
+            var config = new MapperConfiguration(cfg => cfg.AddProfile<MessageMappingProfile>());
+            _mapper = new Mapper(config);
         }
 
         // GET: api/Messages
@@ -84,13 +90,16 @@ namespace LANMessenger.Server.Controllers
         // POST: api/Messages
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Message>> PostMessage(Message message)
+        public async Task<ActionResult<Message>> PostMessage(MessageDTO message)
         {
-          if (_context.Message == null)
-          {
-              return Problem("Entity set 'LANMessengerServerContext.Message'  is null.");
-          }
-            _context.Message.Add(message);
+            if (_context.Message == null)
+            {
+                return Problem("Entity set 'LANMessengerServerContext.Message'  is null.");
+            }
+            var ip = HttpContext.Connection.RemoteIpAddress.ToString();
+            Message m = _mapper.Map<Message>(message);
+            m.sender_ip = ip;
+            _context.Message.Add(m);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMessage", new { id = message.Id }, message);

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LANMessenger.Server", "Server\LANMessenger.Server.csproj", "{86BA7A9F-9268-4E0A-A70D-9D92DA14EFC6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LANMessenger.Server", "Server\LANMessenger.Server.csproj", "{86BA7A9F-9268-4E0A-A70D-9D92DA14EFC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LANMessenger.Client", "Client\LANMessenger.Client.csproj", "{697A0B70-E2BD-4570-AEA2-0CF51AC4E908}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LANMessenger.Client", "Client\LANMessenger.Client.csproj", "{697A0B70-E2BD-4570-AEA2-0CF51AC4E908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LANMessenger.Shared", "Shared\LANMessenger.Shared.csproj", "{DBABA74D-8083-40AF-8EB0-DA39B7F07DD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LANMessenger.Shared", "Shared\LANMessenger.Shared.csproj", "{DBABA74D-8083-40AF-8EB0-DA39B7F07DD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

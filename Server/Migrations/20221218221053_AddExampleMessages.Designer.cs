@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LANMessenger.Server.Migrations
 {
     [DbContext(typeof(LANMessengerServerContext))]
-    [Migration("20221212002602_AddExampleMessages")]
+    [Migration("20221218221053_AddExampleMessages")]
     partial class AddExampleMessages
     {
         /// <inheritdoc />
@@ -64,7 +64,7 @@ namespace LANMessenger.Server.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 35, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 1,
                             SenderId = 100,
                             message = "First.",
@@ -74,7 +74,7 @@ namespace LANMessenger.Server.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 28, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 37, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 1,
                             SenderId = 101,
                             message = "Second.",
@@ -84,1001 +84,1011 @@ namespace LANMessenger.Server.Migrations
                         new
                         {
                             Id = 3,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 34, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "4966161043935199636",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 39, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 1,
+                            SenderId = 2,
+                            message = "Third :)",
+                            senderdevice = "Android",
+                            senderip = "10.0.0.45"
                         },
                         new
                         {
                             Id = 4,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 35, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 43, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "76524692519443771",
+                            message = "1900321642248704932",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 5,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 43, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "3836376283494827321",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 52, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "2524478499898402386",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 6,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 44, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "4166358840490870201",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 7, 57, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "9058748489721462462",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 7,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 47, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "3231934621484814629",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 5, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "2901599550064024034",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 8,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 49, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 13, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "5100876043505245870",
+                            message = "6455822391881743785",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 9,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 56, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "7746359910512314579",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 22, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "748103725286293756",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 10,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 16, 59, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 27, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "3156516082253003841",
+                            message = "5927845316570743406",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 11,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 4, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 28, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "4162382436572423518",
+                            message = "8830963753255973168",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 12,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 8, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 35, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "7676295163492442888",
+                            message = "8366503040399953536",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 13,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 9, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 39, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "941392144386355100",
+                            message = "2041266618684580212",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 14,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 17, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "6185300879579129257",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 46, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "1797758580184831398",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 15,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 20, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 54, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "3181070178333011145",
+                            message = "6269581180230142048",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 16,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 28, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "5229512612046625839",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 56, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "798561190190819023",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 17,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 30, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "3414535405314083007",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 8, 58, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "2021648516401896599",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 18,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 34, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 3, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "3075375602587502898",
+                            message = "7465980554445643485",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 19,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 40, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 10, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "1055932406164165938",
+                            message = "8348777611806571916",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 20,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 48, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 15, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "4417572449278832177",
+                            message = "6189215388535967281",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 21,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 49, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 23, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "1134539498507555655",
+                            message = "7051324583354950911",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 22,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 50, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 26, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "9157593761516003537",
+                            message = "3067590500202625704",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 23,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 53, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "174078785092331039",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 34, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "631974539106393821",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 24,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 17, 59, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 41, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "8436764473004508510",
+                            message = "2041519777388964912",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 25,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 5, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "1883020823407453282",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 42, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "866799362886127015",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 26,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 7, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 43, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "6512576950847069113",
+                            message = "4525220010979984398",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 27,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 9, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "2814992332515081389",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 28,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 14, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "6547510441204069367",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 29,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 20, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 50, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "2079655379573397991",
+                            message = "5701717440593017934",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 30,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 28,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 9, 54, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "2597733108134131500",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 3, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "7134343311073434793",
+                            message = "4821423465743492185",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 31,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 28, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 30,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 8, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "3211719264202379014",
+                            message = "2587643942817301170",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 16, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "6846774171560812285",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 32,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 34, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 25, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "586548738591769647",
+                            message = "5676142573622931118",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 33,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 37, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "59981682369587506",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 34,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 38, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "8634920987142083908",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 35,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 46, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 32, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "3611988559879665079",
+                            message = "1702010335104482132",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 36,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 51, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 34,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 35, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "585103517897713757",
+                            senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 43, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "6042136682847204288",
+                            message = "4762641452969897410",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 37,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 18, 58, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 36,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 44, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "7549242112227022678",
+                            message = "7504616830442433082",
+                            senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 50, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "9173073096139190539",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 38,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 0, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 51, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "6619241028954246256",
+                            message = "1995072495810438922",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 39,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 8, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "9000435366161245452",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 54, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "4160467969545393054",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 40,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 16, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 10, 58, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8360678038757702406",
+                            message = "8426738062238293257",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 41,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 17, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 3, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "7415098890349809779",
+                            message = "155602829019369469",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 42,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "7618506288759683843",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 6, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7122307243476710153",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 43,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 27, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 10, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "6391096482482971308",
+                            message = "8973306905568948902",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 44,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 33, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 12, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "641029397182766122",
+                            message = "8143239769656964684",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 45,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 39, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 20, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "8567652880785250970",
+                            message = "9147253747438613253",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 46,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 41, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 27, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "3172696386681258811",
+                            message = "4579555605070733505",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 47,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 48, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "6138073218705526531",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 30, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7231815561176018558",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 48,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 19, 57, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "584763062371816533",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 36, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "3145427058978579892",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 49,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 1, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "1910036290222102726",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 37, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "8228531372849633239",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 50,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 5, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 40, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "2398630175975551523",
+                            message = "1806906394174585219",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 51,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 13, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "4684180599945440851",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 45, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "3403167222046419213",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 52,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 18, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "1100917436728704855",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 54, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "9070504752272607556",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 53,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 20, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "8552604446476423508",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 54,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 56, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "199156953499867160",
+                            message = "1760855480614827604",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 55,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 30, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 54,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 11, 57, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "7422058778575462200",
+                            message = "7746033925934773010",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
+                            Id = 55,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 3, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7928233868202064759",
+                            senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
                             Id = 56,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 31, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 12, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8529658912472004961",
+                            message = "3140402771327038350",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 57,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 39, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "7053037778610933956",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 16, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "5616410939052307877",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 58,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 48, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 22, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "7825229356323762489",
+                            message = "4976414899933524841",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 59,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 50, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 23, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "501579034720601947",
+                            message = "3497842671692666561",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 60,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 20, 56, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "2954169654887816778",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 26, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7652042552985070620",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 61,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 3, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "3340126790568353808",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 31, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "5102680713187374733",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 62,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 4, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 34, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "4494447984421440716",
+                            message = "8500266869045436099",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 63,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 10, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 36, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8662290270270460684",
+                            message = "1893479189464796913",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 64,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 15, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "284358689546728542",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 65,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 20, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 41, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "5917104151839383926",
+                            message = "933472022535126649",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
+                            Id = 65,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 43, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "6476541850719846940",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
                             Id = 66,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 22, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 44, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "1926378424463185660",
+                            message = "9162612654489090269",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 67,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 31, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 46, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "336639508049634824",
+                            message = "7372063885356503050",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 68,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 35, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 49, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "822826740916189936",
+                            message = "2714645353470126694",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 69,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 38, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 12, 57, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "3567991256599908836",
+                            message = "1864481023584172548",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 70,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 40, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "1496395935624863876",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 5, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7787660248488914187",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 71,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 44, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 10, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8259009425540025076",
+                            message = "3606102755328507073",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 72,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 50, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "477057111023860935",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 16, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "8416892853863790473",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 73,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 54, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 23, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "5896576129611080285",
+                            message = "7371860133630637870",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 74,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 57, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 32, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "1721796666981816760",
+                            message = "8759130626009899265",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 75,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 21, 58, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "5630333428654461270",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 76,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 0, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 37, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "7075752741173240214",
+                            message = "2411476944169892533",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 77,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 3, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 76,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 43, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "6155741003865749378",
+                            message = "6980257135625834216",
+                            senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 77,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 45, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "5877273279894603779",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 78,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 5, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 53, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "6859132462229286215",
+                            message = "3481724424445208991",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 79,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 9, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 13, 59, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "7270374635893113451",
+                            message = "9179299504892057465",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 80,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 15, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 4, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "2904877513882022627",
+                            message = "9087324205766281896",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 81,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 17, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "4590512068758529200",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 7, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "5288936954218485513",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 82,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 24, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 10, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "719747174105582592",
+                            message = "7152940248813779067",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 83,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "688210427526550941",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 17, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "1140221487327195265",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 84,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 32, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 23, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8509695691014033426",
+                            message = "2109327995301221485",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 85,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 39, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 24, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "8034359927032708762",
+                            message = "3292003648552891886",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 86,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 48, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "5964517006988751487",
-                            senderdevice = "Windows",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 87,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 52, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 28, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "3399257539209859464",
+                            message = "942696577262774949",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 88,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 22, 53, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 87,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 33, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "5151495658050979288",
+                            message = "6645046956388790073",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 88,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 34, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "7175773876185643732",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 89,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 2, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 41, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "2441927846521706131",
+                            message = "5022951430031843590",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 90,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 9, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 45, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "7880382597892811235",
+                            message = "7521718667919031364",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 91,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 12, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "1873359396407951873",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 52, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "5391626118686539613",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 92,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 17, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "1868856016294929114",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 53, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "8909520051870209387",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 93,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 19, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "8759920808005217442",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 94,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 25, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "5328022423691825701",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 95,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 26, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "906594383929845335",
-                            senderdevice = "Mac",
-                            senderip = "127.0.0.1"
-                        },
-                        new
-                        {
-                            Id = 96,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 33, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 14, 57, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "5190923540609374853",
+                            message = "5908573662117465361",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
-                            Id = 97,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 42, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Id = 94,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 6, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "6149854009052868772",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 95,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 15, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "8138954957743590195",
+                            senderdevice = "Windows",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 96,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 19, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "8904999351019801982",
+                            message = "4786754129927740401",
                             senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 97,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 24, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "4804737190696079182",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 98,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 44, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 100,
-                            SenderId = 101,
-                            message = "6032951391567426840",
-                            senderdevice = "Mac",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 27, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 101,
+                            SenderId = 100,
+                            message = "6721101630902280449",
+                            senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 99,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 51, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 32, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 101,
                             SenderId = 100,
-                            message = "1043168447825035872",
+                            message = "3087737166867831176",
                             senderdevice = "Windows",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 100,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 11, 23, 55, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "460963214550774528",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 39, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "2183918811320999351",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 101,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 12, 0, 2, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 45, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
                             RecieverId = 100,
                             SenderId = 101,
-                            message = "2802442745798641881",
+                            message = "6651119496088940300",
                             senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         },
                         new
                         {
                             Id = 102,
-                            Date = new DateTimeOffset(new DateTime(2022, 12, 12, 0, 5, 2, 66, DateTimeKind.Unspecified).AddTicks(8500), new TimeSpan(0, -8, 0, 0, 0)),
-                            RecieverId = 101,
-                            SenderId = 100,
-                            message = "112572277542470420",
-                            senderdevice = "Windows",
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 46, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "8151700405741803888",
+                            senderdevice = "Mac",
+                            senderip = "127.0.0.1"
+                        },
+                        new
+                        {
+                            Id = 103,
+                            Date = new DateTimeOffset(new DateTime(2022, 12, 18, 15, 49, 20, 0, DateTimeKind.Unspecified), new TimeSpan(0, -8, 0, 0, 0)),
+                            RecieverId = 100,
+                            SenderId = 101,
+                            message = "7209688102511804693",
+                            senderdevice = "Mac",
                             senderip = "127.0.0.1"
                         });
                 });
@@ -1109,6 +1119,12 @@ namespace LANMessenger.Server.Migrations
                             Id = 1,
                             password = "password",
                             username = "Group"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            password = "password",
+                            username = "Anon"
                         },
                         new
                         {

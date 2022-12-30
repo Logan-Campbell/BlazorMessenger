@@ -1,0 +1,9 @@
+﻿@page "/userchat/{userId:int}"
+@using LANMessenger.Client.Shared.ChatComponents;
+
+<ChatWindow recieverId=userId/>
+
+@code {
+    [Parameter]
+    public int userId { get; set; }
+}

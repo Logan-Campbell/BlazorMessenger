@@ -1,0 +1,40 @@
+﻿@using LANMessenger.Shared.Models
+
+<div @attributes=@leftOrRightAlginCard(isSender) class="message-contianer px-4">
+    <div class="card-body">
+        <h5 class="d-inline card-title">@Data.SenderUsername</h5>
+        <h6 class="d-inline card-subtitle mb-2 text-muted">@Data.Date.ToLocalTime().ToString(dateFormat)</h6>
+        <!--Commented out till proper ip addressing/useragent gather is implemented-->
+        <!--<h7 class="d-inline card-subtitle mb-2 text-muted">Sent From: @data.sender_ip @data.sender_device</h7>-->
+        <p class="card-text">@Data.message</p>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public UserMessageDTO Data { get; set; }
+    /// <summary>
+    /// If true, then aligns card to the left, otherwise aligns card to the right
+    /// </summary>
+    [Parameter]
+    public bool isSender { get; set; } = false;
+
+    [Parameter]
+    public string dateFormat { get; set; } = "MMM dd, yyyy h:mm tt";
+
+    private Dictionary<string, object> leftOrRightAlginCard(bool isLeft)
+    {
+        string attr = "me-auto";
+        if (isLeft)
+        {
+            attr = "ms-auto";
+        }
+
+        Dictionary<string, object> Attributes = new Dictionary<string, object>
+        {
+            ["class"] = $"card {attr}"
+        };
+
+        return Attributes;
+    }
+}

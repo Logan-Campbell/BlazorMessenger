@@ -1,0 +1,19 @@
+﻿.chat-window{
+}
+
+.chat-messages {
+    height: 80vh;
+    width: stretch;
+    overflow-y: scroll;
+}
+
+.chat-input {
+    width: 100%;
+    padding:3rem;
+    background-color: rgb(33,42,43,1);
+}
+
+.btn-primary {
+    border-radius: 0px 5px 5px 0px;
+    padding: 1.1rem;
+}

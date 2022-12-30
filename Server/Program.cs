@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using LANMessenger.Server.Data;
+using LANMessenger.Server.Hubs;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,8 +13,19 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddDbContext<LANMessengerServerContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("LANMessengerServerContext") ?? throw new InvalidOperationException("Connection string 'LANMessengerServerContext' not found.")));
+//Use SignalR
+builder.Services.AddSignalR();
+//Compress the responses when useing SginalR
+builder.Services.AddResponseCompression(opts =>
+{
+    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+        new[] { "application/octet-stream" });
+});
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
+app.UseResponseCompression();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,6 +39,13 @@ else
     app.UseHsts();
 }
 
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<LANMessengerServerContext>();
+    db.Database.Migrate();
+}
+
 app.UseHttpsRedirection();
 
 app.UseBlazorFrameworkFiles();
@@ -36,6 +56,7 @@ app.UseRouting();
 
 app.MapRazorPages();
 app.MapControllers();
+app.MapHub<ChatHub>("/chathub");
 app.MapFallbackToFile("index.html");
 
 app.Run();
