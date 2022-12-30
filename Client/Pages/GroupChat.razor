@@ -1,13 +1,8 @@
 ﻿@page "/groupchat"
 @using LANMessenger.Client.Shared.ChatComponents;
-@using LANMessenger.Shared.Models
 
-<ChatWindow recieverId=1 user=@user/>
+<ChatWindow recieverId=1/>
 
 @code {
-    private UserDTO user = new UserDTO
-        {
-            Id = 2,
-            username = "Anon"
-        };
+
 }

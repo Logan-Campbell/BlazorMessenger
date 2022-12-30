@@ -1,45 +1,103 @@
 ﻿@using Microsoft.AspNetCore.SignalR.Client
-@using LANMessenger.Shared.Models
 @using System.Net
+@implements IAsyncDisposable
+@inject IJSRuntime JS
 @inject HttpClient Http
 @inject NavigationManager Navigation
-@inject IJSRuntime JSRuntime
-@implements IAsyncDisposable
-<div class="chat-window h-100 d-flex flex-column">
-    <div class="chat-messages flex-row" id="chat-messages">
-        @foreach (var message in messages)
-        {   
-            <MessageCard data=message></MessageCard>
-        }
-    </div>
 
-    <div class="chat-input d-flex flex-row flex-grow-1 align-content-center">
-        <div class="input-group mb-3">
-            <input @bind="messageInput" type="text" class="form-control" placeholder="Say something!"/>
-            <div class="input-group-append">
-                <button @onclick="Send" disabled="@(!IsConnected)" class="btn btn-primary" type="button">Enter</button>
+@if(currentUser is null){ //need because this runs before currentUser gets a chance to be set
+    <div class="px-3">
+        Loading...
+    </div>
+}
+else if(currentUser.Id <= 2 && recieverId != 1)
+{
+    <div class="px-3">
+        You must login to chat to this user
+    </div>
+}
+else
+{
+    <div class="chat-window h-100 d-flex flex-column">
+        <div class="chat-messages flex-row" id="chat-messages">
+            @foreach (var message in messages)
+            {   
+                <MessageCard Data=message></MessageCard>
+            }
+            <div id="bottom"></div>
+        </div>
+
+        <div class="chat-input d-flex flex-row flex-grow-1 align-content-center">
+            <div class="input-group mb-3">
+                <input @bind="messageInput" type="text" class="form-control" placeholder="Say something!"/>
+                <div class="input-group-append">
+                    <button @onclick="Send" disabled="@(!IsConnected)" class="btn btn-primary" type="button">Enter</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
+    </div>    
+}
 
 
 @code {
     [Parameter]
     public int recieverId { get; set; }
-    [Parameter]
-    public UserDTO user { get; set; }
-    private HubConnection? hubConnection;
+
+    [CascadingParameter(Name = "AnonUser")]
+    public UserDTO AnonUser { get; set; }
+
+    private UserDTO? currentUser;
     private List<UserMessageDTO> messages = new List<UserMessageDTO>();
-    private string? messageInput;
+    private string messageInput = string.Empty;
     private string userAgent = string.Empty;
+
+    private SessionStorage sessionStorage;
+    private HubConnection? hubConnection;
+
     protected override async Task OnInitializedAsync()
     {
+        sessionStorage = new(JS);
+        currentUser = await GetCurrentUser();
+        if (currentUser is null)
+        {
+            currentUser = AnonUser;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JS.InvokeVoidAsync("scrollBottom", "bottom");
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
         //userAgent = ParseDevice(Navigation.user);
-        IEnumerable<UserMessageDTO> userMessages = await Http.GetFromJsonAsync<IEnumerable<UserMessageDTO>>($"api/UserMessages?recieverId={recieverId}");
-        messages.AddRange(userMessages);
+        IEnumerable<UserMessageDTO> userMessages = new List<UserMessageDTO>();
+        try
+        {
+            //Group
+            if (recieverId == 1)
+            {
+                userMessages = await Http.GetFromJsonAsync<IEnumerable<UserMessageDTO>>($"api/UserMessages/Group?recieverId={recieverId}");
+            }
+            else //Specific user
+            {
+                userMessages = await Http.GetFromJsonAsync<IEnumerable<UserMessageDTO>>($"api/UserMessages?recieverId={recieverId}&senderId={currentUser.Id}");
+            } 
+        } 
+        catch(Exception e) 
+        {
+            Console.WriteLine(e);
+        }
+
+        //Messages are cleared as to not carry over when selecting a different user to chat with.
+        messages.Clear();
+        if(userMessages is not null)
+        {
+            messages.AddRange(userMessages);
+            
+        }
+
         hubConnection = new HubConnectionBuilder()
             .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
             .Build();
@@ -54,6 +112,27 @@
         await hubConnection.StartAsync();
     }
 
+    private async Task<UserDTO> GetCurrentUser()
+    {
+        string? currentUser = await sessionStorage.GetItem("currentUser");
+        if (currentUser is null || currentUser == string.Empty)
+            return null;
+        UserDTO? user;
+        try
+        {
+            user = JsonSerializer.Deserialize<UserDTO>(currentUser);
+        }
+        catch
+        {
+            return null;
+        }
+        return user;
+    }
+
+    /// <summary>
+    /// Send post message to the database if successful, send to SignalR Hub to update all connected users
+    /// </summary>
+    /// <returns></returns>
     private async Task Send()
     {
         if (hubConnection is not null && messageInput is not null && messageInput != string.Empty)
@@ -61,7 +140,7 @@
             //Build a message to send to data base
             MessageDTO message = new MessageDTO
                 {
-                    SenderId = user.Id,
+                    SenderId = currentUser.Id,
                     RecieverId = recieverId,
                     message = messageInput,
                     Date = DateTimeOffset.Now,
@@ -72,7 +151,7 @@
             HttpResponseMessage response = await Http.PostAsJsonAsync<MessageDTO>("api/Messages", message);
             if(response.IsSuccessStatusCode)
             {
-                await hubConnection.SendAsync("SendMessage", user, message);
+                await hubConnection.SendAsync("SendMessage", currentUser, message);
             }
             else
             {
@@ -80,7 +159,7 @@
             }
             //Clear out input
             messageInput = string.Empty;
-            //await JSRuntime.InvokeVoidAsync("LANMessenger.scrollBottom", "chat-messages");
+            await JS.InvokeVoidAsync("scrollBottom", "bottom");
         }
     }
 
@@ -93,8 +172,15 @@
         {
             await hubConnection.DisposeAsync();
         }
+        //already disposing of hubConnection so put this in here too
+        sessionStorage?.Dispose();
     }
 
+    /// <summary>
+    /// Get the device from the user agent, most commonly found between the first round brackets "(...)""
+    /// </summary>
+    /// <param name="userAgent"></param>
+    /// <returns></returns>
     private string ParseDevice(string userAgent)
     {
         int startIndex = userAgent.IndexOf("(");
@@ -103,5 +189,4 @@
             return "N/A";
         return userAgent.Substring(startIndex, endIndex - startIndex);
     }
-
 }

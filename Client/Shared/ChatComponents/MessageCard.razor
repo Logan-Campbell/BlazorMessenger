@@ -2,16 +2,17 @@
 
 <div @attributes=@leftOrRightAlginCard(isSender) class="message-contianer px-4">
     <div class="card-body">
-        <h5 class="d-inline card-title">@data.SenderUsername</h5>
-        <h6 class="d-inline card-subtitle mb-2 text-muted">@data.Date.ToLocalTime().ToString(dateFormat)</h6>
-        <h7 class="d-inline card-subtitle mb-2 text-muted">Sent From: @data.sender_ip @data.sender_device</h7>
-        <p class="card-text">@data.message</p>
+        <h5 class="d-inline card-title">@Data.SenderUsername</h5>
+        <h6 class="d-inline card-subtitle mb-2 text-muted">@Data.Date.ToLocalTime().ToString(dateFormat)</h6>
+        <!--Commented out till proper ip addressing/useragent gather is implemented-->
+        <!--<h7 class="d-inline card-subtitle mb-2 text-muted">Sent From: @data.sender_ip @data.sender_device</h7>-->
+        <p class="card-text">@Data.message</p>
     </div>
 </div>
 
 @code {
     [Parameter]
-    public UserMessageDTO data { get; set; }
+    public UserMessageDTO Data { get; set; }
     /// <summary>
     /// If true, then aligns card to the left, otherwise aligns card to the right
     /// </summary>

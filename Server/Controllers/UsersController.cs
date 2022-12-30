@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using LANMessanger.Server.Models;
 using LANMessenger.Server.Data;
+using LANMessenger.Server.AutoMapper;
+using LANMessenger.Shared.Models;
+using AutoMapper;
 
 namespace LANMessenger.Server.Controllers
 {
@@ -15,26 +18,30 @@ namespace LANMessenger.Server.Controllers
     public class UsersController : ControllerBase
     {
         private readonly LANMessengerServerContext _context;
+        private readonly IMapper _mapper;
 
         public UsersController(LANMessengerServerContext context)
         {
             _context = context;
+            var config = new MapperConfiguration(cfg => cfg.AddProfile<UserMappingProfile>());
+            _mapper = new Mapper(config);
         }
 
         // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser()
+        public async Task<IActionResult> GetUser()
         {
           if (_context.User == null)
           {
               return NotFound();
           }
-            return await _context.User.ToListAsync();
+            IEnumerable<User> users = await _context.User.ToListAsync();
+            return Ok(_mapper.Map<IEnumerable<UserDTO>>(await _context.User.ToListAsync()));
         }
 
         // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        public async Task<ActionResult<UserDTO>> GetUser(int id)
         {
           if (_context.User == null)
           {
@@ -47,7 +54,31 @@ namespace LANMessenger.Server.Controllers
                 return NotFound();
             }
 
-            return user;
+            return _mapper.Map<UserDTO>(user);
+        }
+
+        // GET: api/Users/Login?username=5&password=5
+        [HttpGet("Login")]
+        public async Task<ActionResult<UserDTO>> GetUserByUsernameAndPassword([FromQuery] string username, [FromQuery] string password)
+        {
+            if (_context.User == null)
+            {
+                return NotFound();
+            }
+            var user = await _context
+                .User
+                .Where(u => username == u.username)
+                .Where(u => password == u.password)
+                .FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+            UserDTO userDTO = _mapper.Map<UserDTO>(user);
+            //Don't need to send the password back
+            userDTO.password = null;
+            return userDTO;
         }
 
         // PUT: api/Users/5

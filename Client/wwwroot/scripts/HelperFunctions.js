@@ -1,5 +1,5 @@
-﻿var LANMessenger = LANMessenger || {};
-LANMessenger.scrollBottom = function (id) {
+﻿function scrollBottom(id) {
     var element = document.getElementById(id);
-    element.scroll = element.scrollHeight;
-};
+    element.scroll(0, element.scrollHeight);
+    alert();
+}

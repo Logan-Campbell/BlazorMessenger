@@ -1,0 +1,29 @@
+﻿.close{
+    outline:none;
+    background: transparent;
+    border:hidden;
+}
+
+.btn-login{
+    margin: 10px auto 10px auto;
+}
+
+.modal-content {
+    background-color: #89C0D8;
+    border: 1px solid #212A2B;
+}
+
+input {
+    background-color: #DCE3EC;
+}
+
+.notice-text{
+    margin-left:0.5rem;
+}
+
+.oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}

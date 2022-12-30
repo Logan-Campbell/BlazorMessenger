@@ -1,0 +1,163 @@
+﻿@using LANMessenger.Shared.Models
+@implements IDisposable
+@inject IJSRuntime JS
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+
+<button @onclick="OpenModal" class="nav-link btn-primary w-100">
+    <div>
+        <span class="oi oi-person" aria-hidden="true"></span>
+        @if (currentUser is not null && currentUser.Id != 2)
+        {
+            <span>Logged in as @currentUser.username</span>
+        }
+        else
+        {
+            <span>Login</span>
+        }  
+    </div>
+       
+</button>
+
+
+@if (isModalShown)
+{
+<div class="modal" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginTitle" style="display:block;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="loginTitle">Login</h1>
+                <button @onclick="CloseModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="InputUsername">Username</label>
+                        <input @bind=username class ="form-control" id="InputUsername" placeholder="Username" />
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPassword">Password</label>
+                        <input @bind=password type="password" class="form-control" id="InputPassword" placeholder="Password"/>
+                    </div>
+                        <div>
+                        <button @onclick="CheckLogin" type="button" class="btn btn-primary btn-login">Login</button>
+                        @if (loginSuccessful == loginSuccessEnum.Success)
+                        {
+                            <span class="notice-text" style="color:green">Login Successful</span>
+                        }
+                            else if (loginSuccessful == loginSuccessEnum.Failure)
+                        {
+                            <span class="notice-text" style="color:red">Login fails, username or password incorrect</span>
+                        }
+                    </div>                    
+                    <div>
+                        @if(currentUser is not null && currentUser.Id > 2)
+                        {
+                            <button @onclick="Logout" type="button" class="btn btn-primary btn-login">Logout</button>
+                        }
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>  
+}
+
+@code {
+
+    [CascadingParameter(Name = "AnonUser")]
+    public UserDTO AnonUser { get; set; }
+
+    private UserDTO currentUser;
+    private string username;
+    private string password;
+    private bool isModalShown;
+
+    private SessionStorage sessionStorage;
+
+    private enum loginSuccessEnum{Success, Failure, None}
+    private loginSuccessEnum loginSuccessful = loginSuccessEnum.None;
+
+    protected override async Task OnInitializedAsync()
+    {
+        sessionStorage = new(JS);
+        currentUser = await GetCurrentUser();
+        if (currentUser is null)
+        {
+            currentUser = AnonUser;
+        }
+    }
+
+    private async Task<UserDTO> GetCurrentUser()
+    {
+        string? currentUser = await sessionStorage.GetItem("currentUser");
+        if (currentUser is null || currentUser == string.Empty)
+            return null;
+        UserDTO? user;
+        try
+        {
+            user = JsonSerializer.Deserialize<UserDTO>(currentUser);
+        }
+        catch
+        {
+            return null;
+        }
+        return user;
+    }
+
+    private async void CheckLogin()
+    {
+        if(username is null || username == string.Empty ||
+           password is null || password == string.Empty)
+        {
+            loginSuccessful = loginSuccessEnum.Failure;
+            return;
+        }
+
+        try
+        {
+            UserDTO? confrimedUser = await Http.GetFromJsonAsync<UserDTO>($"api/Users/Login?username={username}&password={password}");
+            if (confrimedUser is not null)
+            {
+                currentUser = confrimedUser;
+                await sessionStorage.SetItem("currentUser", JsonSerializer.Serialize<UserDTO>(currentUser));
+                loginSuccessful = loginSuccessEnum.Success;
+                StateHasChanged();
+                Navigation.NavigateTo("/", true);
+            }
+            else
+            {
+                loginSuccessful = loginSuccessEnum.Failure;
+            }
+        }
+        catch(Exception e) {
+            Console.WriteLine(e);
+        }
+    }
+
+    private async void Logout()
+    {
+        currentUser = AnonUser;
+        await sessionStorage.SetItem("currentUser", JsonSerializer.Serialize<UserDTO>(AnonUser));
+        CloseModal();
+        Navigation.NavigateTo("/", true);
+    }
+
+    private void OpenModal()
+    {
+        isModalShown = true;
+    }
+
+    private void CloseModal()
+    {
+        isModalShown = false;
+        username = string.Empty;
+        password = string.Empty;
+        loginSuccessful = loginSuccessEnum.None;
+    }
+
+    public void Dispose() { sessionStorage?.Dispose(); }
+}
