@@ -42,7 +42,8 @@ namespace LANMessenger.Server.Data
             );
 
             #endregion Users
-            
+            //Example messages for testing
+            /*
             #region Messages
             //Add a real date and time to keep everything in order and model realistic behaviour.
             DateTime dateTime = new DateTime(2022, 12, 18, 7, 35, 20);
@@ -105,7 +106,7 @@ namespace LANMessenger.Server.Data
             
             #endregion
             
-
+            */
         }
     }
 }
