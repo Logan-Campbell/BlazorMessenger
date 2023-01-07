@@ -1,4 +1,4 @@
-# LANMessenger
+# BlazorMessenger
 
 This is a basic chat messenger between users or into a group chat where everyone has access to 
 even those not logged in.
